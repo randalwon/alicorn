@@ -1,0 +1,227 @@
+* { 
+  -web-kit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; 
+}
+html {margin:0; padding: 0;}
+body {
+	background-color: #fefefe;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.1em;
+  /*font-weight: 700;*/
+  line-height: 1.5em;
+}
+/************
+	HEADER
+*************/
+/*LOGO*/
+header {
+	width: 80%;
+  margin: 0 auto;
+	padding: 15px;
+  margin-bottom: 15px;
+}
+header h1{
+	font-family: 'Arvo', sans-serif;
+  color: #9c386b; /*Center Centre pink: #9c386b, Center Centre blue: #00a3b4; */ 
+  font-size: 1.8em;
+  font-weight: 700;
+  line-height: 1.45em;
+  text-align: left;
+  margin: 0;
+  /*padding: 5px;*/
+  float: left;
+}
+header h1 a, header h1 a:visited, header h1 a:link{
+  text-decoration: none;
+  color: #9c386b; /*Center Centre pink: #9c386b, Center Centre blue: #00a3b4; */ 
+}
+
+.utility{ 
+	float: right; 
+	margin-right: 25px;
+	/*background-color: #99aa00;*/
+}
+/*SEARCH*/
+input[type="text"] {
+  height: 30px;
+  display: inline-block;
+  border: none;
+  outline: none;
+  padding: 3px;
+  padding-right: 60px;
+  width: 0px;
+  position: absolute;
+  top: 15px;
+  right: 55px;/*must be the same as for input[type="submit"] */
+  background: none;
+  z-index: 3;
+  transition: width .4s cubic-bezier(0.000, 0.795, 0.000, 1.000);
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.4em;
+  font-weight: 700;
+  line-height: 2em;
+}
+
+input[type="text"]:focus:hover {
+	border-bottom: 1px solid #BBB;
+}
+
+input[type="text"]:focus {
+	width: 75%;
+  z-index: 1;
+  border-bottom: 1px solid #444;
+  cursor: text;
+  background-color: #bbb;
+  color: black;
+
+}
+input[type="submit"] {
+display: inline-block;
+  height: 30px;
+  width: 30px;
+  color: red;
+  float: right;
+  background: url(../images/search_icon2_30x30.png) center center no-repeat;
+  text-indent: -10000px;
+  border: none;
+  position: absolute;
+  top: 15px;
+  right: 55px; /*must be the same as for input[type="text"] */
+  z-index: 2;
+  cursor: pointer;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: opacity .4s ease;
+}
+
+input[type="submit"]:hover {
+  opacity: 1;
+}
+/*PROFILE*/
+.profile_access{
+	float: left;
+}
+.circle {
+	width: 33px;
+	height: 33px;
+ 	margin: 0;
+	border-radius: 500px;
+}
+img .circle { width:100px; }
+/************
+	NAVIGATION
+*************/
+header ul {
+  float: left;
+  margin-left: 20px;
+}
+header ul li {
+	display: inline-block;
+}
+header ul li a{
+	font-family: 'Open Sans', sans-serif;
+  font-size: 1.4em;
+  font-weight: 700;
+  line-height: 2em;
+  color: #00a3b4;
+	padding: 10px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+header ul li a:first-child {
+	position: relative; 
+	left: -10px
+}
+header ul li a i.fa { 
+  font-size: 1.5em;
+}
+/*************
+  MAIN
+*************/
+main {
+    width: 80%;
+    margin: 0 auto;
+    border: 1px solid #aeaeae;
+    background-color: #fff;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+/* .card */
+.card {
+    border: 1px solid #dfdfdf;
+    padding: 10px;
+    margin: 10px;
+    flex: 0 1 calc(33.33% - 20px);
+    position: relative;
+}
+div.card img {
+  position: relative;
+  width: 100%;
+  top: 15px;
+  margin-bottom: 15px;
+}
+div.card span.topic {
+    position: absolute;
+    top: 0.2em;
+    left: 12px;
+    text-align: left;
+    font-size: .7em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: #585858;
+}
+div.card h2 {
+  margin: 10px 0;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+div.card p{
+  font-family: serif;
+  color: #333;
+  font-size: 1em;
+  line-height: 1.3em;
+  padding-right: 10px;
+  margin-bottom: 0.5em;
+}
+.card_utility{
+  font-size: 0.8em;
+  color: #999;
+}
+.card_utility a{
+  text-decoration: none;
+  color: #00a3b4;
+  cursor: pointer;
+}
+.card_utility a:hover{
+  background-color: #24b4c3;
+  color: #000;
+}
+
+
+/*************
+  FOOTER
+*************/
+footer{
+  clear: both;
+}
+
+/*************
+  MEDIA QUERIES
+*************/
+@media (max-width: 1110px){
+.card {
+    flex: 0 1 calc(50% - 20px); /* The 0 is for flex-grow, if there is extra room on the row, don't grow. 
+    The 1 is for flex-shrink, if there isn't enough room give up some width in proportion (1) of the space needed to be given up.
+    The calc (50%-20px) is the flex-basis, in an ideal world be this wide. Calc is used to determine the width instead of hard coding so it can be responsive but not mess with the margin - -20px takes into acount the margin of 10px on each side. */
+}
+@media (max-width: 800px){
+.card {
+    flex-basis: 100%;
+}
+}
